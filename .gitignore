@@ -1,5 +1,60 @@
-models/*.pth
+# =======================================
+# 🧠 PROJECT FLASK + DEEP LEARNING
+# =======================================
+
+# 1️⃣ Python cache & build
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.pdb
+*.egg-info/
+build/
+dist/
+
+# 2️⃣ Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# 3️⃣ Flask cache & instance data
+instance/
+*.db
+*.sqlite3
+
+# 4️⃣ Model files (thường rất nặng)
+models/
+*.h5
+*.hdf5
+*.pth
+*.pt
+*.pkl
+*.joblib
+*.ckpt
+
+# 5️⃣ Uploads & static data (nếu có thể tạo lại)
+static/uploads/
+uploads/
+tmp/
+temp/
+
+# 6️⃣ Logs & reports
+*.log
+*.out
+*.err
+
+# 7️⃣ IDE / Editor configs
+.vscode/
+.idea/
+*.swp
+
+# 8️⃣ OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 9️⃣ Environment variables
+.env
+.env.local
+.env.*
