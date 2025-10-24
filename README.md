@@ -77,16 +77,23 @@ Bây giờ bạn đã có thể tải ảnh lên và trải nghiệm mô hình p
 ## ## Cấu trúc Dự án
 
 ```
-/flower_app_flask/
+flower_app_flask/
 ├── models/
-│   └── exp_vit.pth            # File trọng số mô hình ViT (cần tải về)
+│   ├── exp_vit.pth              # File trọng số mô hình ViT (phải tải)
+│   ├── cat_to_name.json         # Ánh xạ nhãn → tên loài hoa
+│   ├── flower_color_map.json    # Dữ liệu màu chủ đạo cho từng loài hoa
+│   └── wiki_cache.json          # Cache mô tả Wikipedia (tùy chọn)
+│
 ├── static/
-│   ├── uploads/               # Thư mục lưu ảnh người dùng (tự động tạo)
-│   └── style.css              # File CSS cho giao diện
+│   ├── uploads/                 # Ảnh người dùng upload
+│   └── style.css                # CSS giao diện
+│
 ├── templates/
-│   └── index.html             # File HTML giao diện
-├── app.py                     # File server Flask chính (Logic web)
-├── model_loader.py            # Logic tải model và dự đoán (Bộ não AI)
-├── requirements.txt           # Danh sách thư viện Python
-└── cat_to_name.json           # File mapping tên hoa
+│   └── index.html               # Giao diện web chính
+│
+├── app.py                       # Ứng dụng Flask (entry point)
+├── model_service.py             # Xử lý dự đoán, màu sắc và wiki
+├── requirements.txt             # Thư viện Python cần thiết
+└── README.md                    # Tài liệu hướng dẫn (bạn đang đọc)
+
 ```

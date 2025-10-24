@@ -1,5 +1,10 @@
-flask
+Flask
 torch
 torchvision
 Pillow
 numpy
+opencv-python-headless
+scikit-learn
+wikipedia-api
+requests
+sumy

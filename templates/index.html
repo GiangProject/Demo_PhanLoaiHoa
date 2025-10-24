@@ -2,17 +2,15 @@
 <html lang="vi">
 
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
     <meta charset="UTF-8">
-    <title>Phân loại Hoa</title>
-
+    <title>Phân loại Hoa (Python Web)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
     <div class="container">
         <h1>Ứng dụng Phân loại 102 Loài hoa</h1>
-        <p>Sử dụng mô hình ViT</p>
+        <p>Sử dụng mô hình ViT (Accuracy: ~91.9%)</p>
 
         <form method="post" enctype="multipart/form-data">
             <input type="file" name="file" required>
@@ -25,15 +23,28 @@
         {% endif %}
 
         {% if image_file %}
-        <img src="{{ url_for('static', filename=image_file) }}" alt="Ảnh đã tải lên">
+        <img src="{{ image_file }}" alt="Ảnh đã tải lên" width="300" style="margin-top: 15px; border-radius: 8px;">
         {% endif %}
 
         {% if predictions %}
         <div class="result">
             <h2>Kết quả dự đoán:</h2>
-            <p class="main">{{ predictions[0].label }} ({{ predictions[0].probability }})</p>
+
+            <div class="main-prediction">
+                <p class="main">{{ predictions[0].label }} ({{ predictions[0].probability }})</p>
+
+                <p>Màu chủ đạo khai phá được: <strong>{{ predictions[0].color }}</strong></p>
+
+                <p class="wiki-summary">
+                    **Thông tin Wikipedia:** <em>{{ predictions[0].summary }}</em>
+                </p>
+                <hr>
+            </div>
+
+            <h3>Top Khả năng khác:</h3>
             {% for p in predictions[1:] %}
             <p>{{ p.label }}: {{ p.probability }}</p>
+            <p style="font-size: 0.9em; color: #6c757d;">Màu: {{ p.color }}</p>
             {% endfor %}
         </div>
         {% endif %}
